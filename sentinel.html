@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171a18" />
+    <meta name="description" content="Sentinel is a concept security operations dashboard for monitoring protocol health and triaging on-chain risk signals." />
+    <title>Sentinel | Protocol security operations</title>
+    <link rel="stylesheet" href="/web3-showcase.css" />
+  </head>
+  <body class="showcase-page theme-sentinel">
+    <header class="product-topbar">
+      <a class="product-brand" href="/" aria-label="Sentinel home">
+        <span class="brand-mark">S</span><span>Sentinel<span class="brand-label">SECURITY REVIEW</span></span>
+      </a>
+      <nav class="product-nav" aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#signals">Signals</a><a href="/">Portfolio</a>
+      </nav>
+      <a class="topbar-action" href="#watchlist">View watchlist <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main class="project-shell">
+      <section class="project-intro" id="overview">
+        <div>
+          <p class="eyebrow"><span class="status-dot"></span> SENTINEL · SECURITY REVIEW</p>
+          <h1>Nothing to panic about.<br /><span>Just a few things to check.</span></h1>
+          <p class="project-lede">When something changes on-chain, the hard part is deciding whether it matters. Sentinel puts the change, its owner and the next step together—so the team can make that call with context.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#signals">See what needs a look <span aria-hidden="true">↓</span></a>
+            <a class="button" href="#watchlist">View watched systems</a>
+          </div>
+        </div>
+        <aside class="network-card" aria-label="Security monitoring status">
+          <span class="network-label">Today’s review</span>
+          <strong class="network-value">2 items to check</strong>
+          <span class="network-meta">Example protocol · no live monitoring</span>
+          <span class="network-indicator"><span class="status-dot"></span> No urgent issues in this sample</span>
+        </aside>
+      </section>
+
+      <section class="workspace" id="signals" aria-label="Sentinel security dashboard">
+        <div class="workspace-main">
+          <div class="workspace-heading">
+            <div><span class="panel-label">A sample work queue</span><h2>Recent changes</h2></div>
+            <span class="simulated-tag">EXAMPLE EVENTS</span>
+          </div>
+          <div class="metric-row">
+            <article class="metric-card"><span class="metric-label">Needs a review</span><strong>2 items</strong><span class="metric-note">Example queue</span></article>
+            <article class="metric-card"><span class="metric-label">Watching</span><strong>5 systems</strong><span class="metric-note">Example setup</span></article>
+            <article class="metric-card"><span class="metric-label">Last check</span><strong>09:14</strong><span class="metric-note">Sample time</span></article>
+          </div>
+          <div class="incident-list">
+            <article class="incident-row"><span class="incident-marker"></span><div><strong>Admin role changed on Treasury</strong><p>A new role was added. Check it against the release notes before marking it expected.</p></div><time datetime="2026-11-12T09:14">09:14</time></article>
+            <article class="incident-row"><span class="incident-marker"></span><div><strong>Oracle settings updated</strong><p>The feed configuration changed. The sample owner has not confirmed the update yet.</p></div><time datetime="2026-11-12T09:08">09:08</time></article>
+            <article class="incident-row"><span class="incident-marker"></span><div><strong>Upgrade proposal queued</strong><p>A second reviewer is still needed before the change moves forward.</p></div><time datetime="2026-11-12T08:42">08:42</time></article>
+          </div>
+        </div>
+        <aside class="workspace-aside" id="watchlist">
+          <h3>Systems on the list</h3>
+          <div class="activity-row"><span class="activity-icon">TR</span><div class="activity-copy"><strong>Treasury contract</strong><small>Roles and proposals</small></div><span class="activity-value">Watching</span></div>
+          <div class="activity-row"><span class="activity-icon">OR</span><div class="activity-copy"><strong>Price feed</strong><small>Configuration changes</small></div><span class="activity-value">Watching</span></div>
+          <div class="activity-row"><span class="activity-icon">UP</span><div class="activity-copy"><strong>Upgrade process</strong><small>Review approvals</small></div><span class="activity-value">Watching</span></div>
+          <p class="privacy-copy">A real team would choose which events matter and who should review them.</p>
+        </aside>
+      </section>
+
+      <div class="section-heading"><h2>Make the next step clear</h2><p>A useful alert tells you what changed, why it matters and who can follow up.</p></div>
+      <section class="detail-grid" aria-label="Sentinel product capabilities">
+        <article class="detail-card"><span class="detail-index">WHAT CHANGED</span><h3>Start with the event</h3><p>See the contract, the change and its time without having to reconstruct the story from separate logs.</p></article>
+        <article class="detail-card"><span class="detail-index">WHO SHOULD LOOK</span><h3>Give it an owner</h3><p>Assign a reviewer and leave a note, so the same alert does not get investigated twice.</p></article>
+        <article class="detail-card"><span class="detail-index">WHAT HAPPENED NEXT</span><h3>Close the loop</h3><p>Mark a change as expected or keep it open for follow-up, with a short reason the rest of the team can understand.</p></article>
+      </section>
+      <p class="concept-note">Sentinel is a portfolio concept. All names, times and events are invented examples; it does not monitor contracts or assess real security risks.</p>
+      <footer class="project-footer"><a class="back-link" href="/">← Back to Bitrus H Amaza's portfolio</a><span>Example events · Not live monitored</span></footer>
+    </main>
+  </body>
+</html>

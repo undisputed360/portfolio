@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta
+      name="description"
+      content="A transaction-review concept for checking the recipient, network and fee before signing."
+    />
+    <title>Web3 Future | A clearer transaction preview</title>
+    <link rel="stylesheet" href="/demo-style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">web3<span>future</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#activity">Sample activity</a>
+        <a href="#checks">What gets checked</a>
+        <a href="#about">About</a>
+      </nav>
+      <span class="demo-label">Concept preview</span>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">A calmer pause before you sign</p>
+          <h1>Know what a transaction will do before it leaves your wallet.</h1>
+          <p class="intro">
+            A transaction-review concept for people who want the important
+            details in plain language: who receives the funds, which network
+            it uses, and what the fee might be.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#activity">See an example</a>
+            <a class="button button-quiet" href="#checks">How the review works</a>
+          </div>
+          <p class="quiet-note">No wallet connected · Nothing to sign</p>
+        </div>
+
+        <section class="transaction-card" id="activity" aria-labelledby="transaction-title">
+          <div class="transaction-heading">
+            <div>
+              <p class="eyebrow">EXAMPLE ONLY</p>
+              <h2 id="transaction-title">Before you send</h2>
+            </div>
+            <span class="review-state">Needs your review</span>
+          </div>
+          <div class="transaction-type">
+            <span class="token-mark">U</span>
+            <div><strong>Send USDC</strong><small>Example transfer · Base</small></div>
+          </div>
+          <dl class="transaction-details">
+            <div><dt>Amount</dt><dd>48.00 USDC</dd></div>
+            <div><dt>To</dt><dd>0x71…94c2</dd></div>
+            <div><dt>Network fee</dt><dd>About $0.18</dd></div>
+            <div><dt>Network</dt><dd>Base · example</dd></div>
+          </dl>
+          <p class="card-note">
+            This screen is a static mock-up. No address is checked and no
+            transfer can be approved here.
+          </p>
+        </section>
+      </section>
+
+      <section class="checks" id="checks">
+        <div class="section-intro">
+          <p class="eyebrow">THE DETAILS THAT MATTER</p>
+          <h2>Make the unfamiliar easier to spot.</h2>
+          <p>
+            The idea is simple: put the basics up front, before an action
+            reaches a wallet confirmation screen.
+          </p>
+        </div>
+        <div class="check-list">
+          <article>
+            <span>01</span>
+            <div><h3>Recipient</h3><p>See the destination address before you continue.</p></div>
+          </article>
+          <article>
+            <span>02</span>
+            <div><h3>Network</h3><p>Keep the selected chain visible next to the action.</p></div>
+          </article>
+          <article>
+            <span>03</span>
+            <div><h3>Fee</h3><p>Show an estimate with a clear note when it can change.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <p class="eyebrow">BUILT FOR CLARITY, NOT HYPE</p>
+        <h2>Good security starts with knowing what you are approving.</h2>
+        <p>
+          Web3 Future is a portfolio concept, not a connected wallet service.
+          The address, amount and fee above are fictional examples; the page
+          does not connect to a network or request personal information.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <a href="/">← Back to Bitrus H Amaza's portfolio</a>
+      <span>Web3 Future · Transaction review concept</span>
+    </footer>
+  </body>
+</html>

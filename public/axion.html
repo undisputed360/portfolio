@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f3ef" />
+    <meta
+      name="description"
+      content="Axion is a read-only wallet dashboard concept for checking an address, network and native balance."
+    />
+    <title>Axion | A clear view of your wallet</title>
+    <link rel="stylesheet" href="/axion-style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/">axion<span>.</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#network">Network details</a>
+          <a href="/">Portfolio</a>
+        </nav>
+        <button id="connectBtn" type="button">Connect wallet</button>
+      </header>
+
+      <main>
+        <section class="intro">
+          <p class="eyebrow">READ-ONLY WALLET VIEW</p>
+          <h1>A clear view of your on-chain account.</h1>
+          <p>
+            Check an address, network and native ETH balance in one place. This
+            preview reads from your browser wallet only when you choose to
+            connect; it never asks you to sign or send a transaction.
+          </p>
+        </section>
+
+        <section class="wallet-card" id="overview" aria-labelledby="wallet-title">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">ACCOUNT</p>
+              <h2 id="wallet-title">Wallet overview</h2>
+            </div>
+            <span class="connection-state" id="networkStatus">Not connected</span>
+          </div>
+
+          <div class="account-grid">
+            <div class="balance-card">
+              <span>Native balance</span>
+              <strong id="tokenBalance">— ETH</strong>
+              <small>On the selected network</small>
+            </div>
+            <div class="account-detail">
+              <span>Wallet address</span>
+              <strong id="walletAddress">Not connected</strong>
+            </div>
+          </div>
+
+          <p class="wallet-message" id="walletMessage" role="status" aria-live="polite">
+            Connect a browser wallet to read its public account details.
+          </p>
+        </section>
+
+        <section class="details-grid" id="network" aria-label="How this preview works">
+          <article>
+            <span class="detail-number">01</span>
+            <h2>What it reads</h2>
+            <p>
+              The selected public address, active network and native ETH
+              balance, retrieved from your wallet on request.
+            </p>
+          </article>
+          <article>
+            <span class="detail-number">02</span>
+            <h2>What it never does</h2>
+            <p>
+              Axion does not request signatures, submit transactions, or
+              display made-up token balances.
+            </p>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <a href="/">← Back to Bitrus H Amaza's portfolio</a>
+        <span>Axion is a portfolio concept · Read-only wallet access</span>
+      </footer>
+    </div>
+    <script src="/axion-script.js" defer></script>
+  </body>
+</html>

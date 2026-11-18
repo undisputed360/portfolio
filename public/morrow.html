@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f0eee7" />
+    <title>Morrow | Digital works, lasting ownership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f0eee7;
+        --flare: #ff6845;
+        --ink: #171717;
+        --line: rgba(23, 23, 23, 0.16);
+        --quiet: rgba(23, 23, 23, 0.63);
+        font-family: "Inter", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1280px;
+        margin: auto;
+        padding: 0 36px;
+      }
+      .nav {
+        height: 78px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font:
+          700 21px "Space Grotesk",
+          sans-serif;
+        letter-spacing: 0;
+      }
+      .logo i {
+        font-style: normal;
+        color: var(--flare);
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        font-size: 12px;
+        color: var(--quiet);
+      }
+      .nav-links a:hover {
+        color: var(--flare);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        font-size: 12px;
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--flare);
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .menu {
+        display: none;
+        border: 0;
+        background: none;
+        font-size: 22px;
+        color: var(--ink);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 44px;
+        align-items: center;
+        padding: 56px 0 62px;
+      }
+      .kicker {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--flare);
+        font-weight: 700;
+      }
+      .hero h1 {
+        font:
+          600 clamp(38px, 5.5vw, 68px)/0.98 "Space Grotesk",
+          sans-serif;
+        letter-spacing: 0;
+        margin: 18px 0 16px;
+        max-width: 520px;
+      }
+      .hero p {
+        font-size: 14px;
+        color: var(--quiet);
+        line-height: 1.75;
+        max-width: 420px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 27px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 17px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .button.light {
+        background: transparent;
+        color: var(--ink);
+      }
+      .button:hover {
+        background: var(--flare);
+        border-color: var(--flare);
+        color: var(--ink);
+      }
+      .art-stage {
+        height: 350px;
+        position: relative;
+        background: var(--flare);
+        overflow: hidden;
+      }
+      .art-stage:before {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border: 1px solid var(--paper);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow:
+          0 0 0 24px rgba(240, 238, 231, 0.12),
+          0 0 0 48px rgba(240, 238, 231, 0.1);
+      }
+      .art-orbit {
+        position: absolute;
+        width: 130px;
+        height: 220px;
+        border: 1px solid var(--ink);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(42deg);
+      }
+      .art-disc {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: var(--paper);
+        border-radius: 50%;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        mix-blend-mode: screen;
+      }
+      .art-caption {
+        position: absolute;
+        left: 20px;
+        bottom: 18px;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--ink);
+      }
+      .stage-no {
+        position: absolute;
+        right: 20px;
+        top: 17px;
+        font:
+          600 11px "Space Grotesk",
+          sans-serif;
+      }
+      .market {
+        border-top: 1px solid var(--line);
+        padding: 28px 0 56px;
+      }
+      .market-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        margin-bottom: 22px;
+      }
+      .market-head h2 {
+        font:
+          600 25px "Space Grotesk",
+          sans-serif;
+        margin: 0;
+      }
+      .market-head p {
+        font-size: 11px;
+        color: var(--quiet);
+        margin: 7px 0 0;
+      }
+      .filters {
+        display: flex;
+        gap: 5px;
+      }
+      .filters button {
+        border: 1px solid var(--line);
+        background: transparent;
+        padding: 8px 12px;
+        color: var(--quiet);
+        font-size: 10px;
+      }
+      .filters button[aria-pressed="true"] {
+        background: var(--ink);
+        border-color: var(--ink);
+        color: var(--paper);
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .work {
+        min-width: 0;
+      }
+      .art {
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+        background: var(--ink);
+      }
+      .art:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(23, 23, 23, 0.08);
+        pointer-events: none;
+      }
+      .art-one {
+        background: var(--flare);
+      }
+      .art-one:before {
+        content: "";
+        position: absolute;
+        width: 128px;
+        height: 128px;
+        border: 1px solid var(--paper);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow:
+          0 0 0 18px rgba(240, 238, 231, 0.15),
+          0 0 0 42px rgba(240, 238, 231, 0.12);
+      }
+      .art-two {
+        background: var(--paper);
+        border: 1px solid var(--line);
+      }
+      .art-two:before {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 160px;
+        background: var(--flare);
+        border-radius: 60% 40% 52% 48%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-24deg);
+      }
+      .art-two:after {
+        inset: 30px;
+        border: 1px solid var(--ink);
+        transform: rotate(18deg);
+      }
+      .art-three {
+        background: var(--ink);
+      }
+      .art-three:before {
+        content: "";
+        position: absolute;
+        width: 190px;
+        height: 190px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: repeating-linear-gradient(
+          45deg,
+          var(--flare) 0 2px,
+          transparent 2px 10px
+        );
+        border-radius: 50%;
+      }
+      .art-three:after {
+        inset: 22px;
+        border: 1px solid var(--paper);
+        border-radius: 50%;
+      }
+      .art-four {
+        background: var(--flare);
+      }
+      .art-four:before {
+        content: "";
+        position: absolute;
+        width: 145px;
+        height: 145px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        border: 1px solid var(--ink);
+        box-shadow:
+          0 0 0 18px rgba(23, 23, 23, 0.12),
+          0 0 0 38px rgba(23, 23, 23, 0.1);
+      }
+      .art-four:after {
+        inset: 54px;
+        border: 1px solid var(--paper);
+      }
+      .work-meta {
+        padding: 12px 0 0;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 5px;
+      }
+      .work-title {
+        font:
+          600 14px "Space Grotesk",
+          sans-serif;
+      }
+      .artist {
+        font-size: 10px;
+        color: var(--quiet);
+      }
+      .price {
+        text-align: right;
+        font-size: 11px;
+      }
+      .price small {
+        display: block;
+        color: var(--quiet);
+        font-size: 9px;
+        margin-top: 4px;
+      }
+      .work-details {
+        grid-column: 1/-1;
+        margin-top: 8px;
+        border-top: 1px solid var(--line);
+        padding-top: 9px;
+      }
+      .work-details summary {
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .work-details p {
+        margin: 8px 0 0;
+        color: var(--quiet);
+        font-size: 10px;
+        line-height: 1.5;
+      }
+      .empty {
+        display: none;
+        padding: 35px 0;
+        color: var(--quiet);
+        font-size: 13px;
+      }
+      .foot {
+        border-top: 1px solid var(--line);
+        padding: 18px 0 26px;
+        display: flex;
+        justify-content: space-between;
+        color: var(--quiet);
+        font-size: 10px;
+      }
+      @media (max-width: 850px) {
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .art {
+          height: 220px;
+        }
+        .hero {
+          gap: 25px;
+        }
+        .art-stage {
+          height: 300px;
+        }
+      }
+      @media (max-width: 600px) {
+        .wrap {
+          padding: 0 19px;
+        }
+        .nav-links,
+        .nav-right {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 40px 0;
+          gap: 30px;
+        }
+        .hero h1 {
+          font-size: 46px;
+        }
+        .art-stage {
+          height: 260px;
+        }
+        .market-head {
+          align-items: start;
+          gap: 18px;
+          flex-direction: column;
+        }
+        .filters {
+          width: 100%;
+          overflow: auto;
+        }
+        .filters button {
+          flex: 1;
+          padding: 8px;
+        }
+        .gallery {
+          gap: 12px;
+        }
+        .art {
+          height: clamp(150px, 55vw, 230px);
+        }
+        .work-title {
+          font-size: 12px;
+        }
+        .foot {
+          gap: 10px;
+          flex-direction: column;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap nav">
+      <a class="logo" href="#top">morrow<i>.</i></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#market">Explore</a><a href="#market">Artists</a
+        ><a href="#about">Our approach</a>
+      </nav>
+      <div class="nav-right">
+        <span>Built for collectors</span
+        ><span class="avatar" aria-hidden="true">M</span>
+      </div>
+      <button class="menu" type="button" aria-label="Open navigation">+</button>
+    </header>
+    <main class="wrap" id="top">
+      <section class="hero" id="about">
+        <div>
+          <div class="kicker">A home for independent digital art</div>
+          <h1>Good work.<br />Lasting ownership.</h1>
+          <p>
+            A small collection of independent digital art, with clear edition
+            details and room for the story behind each piece.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#market"
+              >Explore the collection <span aria-hidden="true">↗</span></a
+            ><a class="button light" href="#market">Meet the artists</a>
+          </div>
+        </div>
+        <div
+          class="art-stage"
+          role="img"
+          aria-label="Original geometric artwork in coral, charcoal and ivory"
+        >
+          <span class="stage-no">M / 001</span><span class="art-orbit"></span
+          ><span class="art-disc"></span
+          ><span class="art-caption">Untitled in motion · 2026</span>
+        </div>
+      </section>
+      <section class="market" id="market">
+        <div class="market-head">
+          <div>
+            <h2>Selected works</h2>
+            <p>Digital originals, made to be collected.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filter artworks">
+            <button type="button" aria-pressed="true" data-filter="all">
+              All works</button
+            ><button type="button" aria-pressed="false" data-filter="edition">
+              Editions</button
+            ><button type="button" aria-pressed="false" data-filter="one">
+              One of one
+            </button>
+          </div>
+        </div>
+        <div class="gallery">
+          <article class="work" data-kind="one">
+            <div
+              class="art art-one"
+              role="img"
+              aria-label="Circular coral and ivory composition"
+            ></div>
+            <div class="work-meta">
+              <span class="work-title">Soft Signal No. 4</span
+              ><span class="price">0.84 ETH<small>ONE OF ONE</small></span
+              ><span class="artist">Mina Sol · Lagos</span
+              ><details class="work-details"><summary>About this work</summary><p>A study in soft edges and the small changes that make a familiar shape feel new.</p></details>
+            </div>
+          </article>
+          <article class="work" data-kind="edition">
+            <div
+              class="art art-two"
+              role="img"
+              aria-label="Sculptural coral shape on ivory"
+            ></div>
+            <div class="work-meta">
+              <span class="work-title">Form Studies</span
+              ><span class="price">0.12 ETH<small>EDITION OF 30</small></span
+              ><span class="artist">Arin Okafor · London</span
+              ><details class="work-details"><summary>About this work</summary><p>A limited series exploring how one form can shift across a set of variations.</p></details>
+            </div>
+          </article>
+          <article class="work" data-kind="edition">
+            <div
+              class="art art-three"
+              role="img"
+              aria-label="Fine coral lines on a charcoal field"
+            ></div>
+            <div class="work-meta">
+              <span class="work-title">Afterimage</span
+              ><span class="price">0.18 ETH<small>EDITION OF 12</small></span
+              ><span class="artist">Nia Park · Seoul</span
+              ><details class="work-details"><summary>About this work</summary><p>Fine repeated lines build a quiet image that changes as you look more closely.</p></details>
+            </div>
+          </article>
+          <article class="work" data-kind="one">
+            <div
+              class="art art-four"
+              role="img"
+              aria-label="Layered geometric forms in coral, charcoal and ivory"
+            ></div>
+            <div class="work-meta">
+              <span class="work-title">A Place Between</span
+              ><span class="price">1.20 ETH<small>ONE OF ONE</small></span
+              ><span class="artist">Eli Mensah · Accra</span
+              ><details class="work-details"><summary>About this work</summary><p>Layered shapes sit between order and chance in a one-of-one composition.</p></details>
+            </div>
+          </article>
+        </div>
+        <div class="empty" role="status">No works in this selection.</div>
+      </section>
+    </main>
+    <footer class="wrap foot">
+      <span>Morrow · Independent digital art</span
+      ><span>Example collection · Artists, works and prices are fictional; no purchases are available.</span>
+    </footer>
+    <script>
+      const works = [...document.querySelectorAll(".work")];
+      const empty = document.querySelector(".empty");
+      document.querySelectorAll("[data-filter]").forEach((button) =>
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-filter]")
+            .forEach((item) =>
+              item.setAttribute("aria-pressed", String(item === button)),
+            );
+          let visible = 0;
+          works.forEach((work) => {
+            const show =
+              button.dataset.filter === "all" ||
+              work.dataset.kind === button.dataset.filter;
+            work.hidden = !show;
+            if (show) visible += 1;
+          });
+          empty.style.display = visible ? "none" : "block";
+        }),
+      );
+      document.querySelector(".menu").addEventListener("click", () => {
+        const nav = document.querySelector(".nav-links");
+        const open = nav.style.display === "flex";
+        nav.style.cssText = open
+          ? ""
+          : "display:flex;position:absolute;top:78px;left:0;right:0;padding:20px;background:#f0eee7;border-bottom:1px solid rgba(23,23,23,.16);z-index:2;justify-content:center";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17291f" />
+    <title>Common Ground | Decisions made together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --forest: #17291f;
+        --gold: #e4b45c;
+        --ivory: #f6f1e7;
+        --line: rgba(246, 241, 231, 0.16);
+        --muted: rgba(246, 241, 231, 0.64);
+        font-family: "Inter", sans-serif;
+        color: var(--ivory);
+        background: var(--forest);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--forest);
+        color: var(--ivory);
+      }
+      a,
+      button {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        cursor: pointer;
+      }
+      .shell {
+        max-width: 1260px;
+        padding: 0 36px;
+        margin: auto;
+      }
+      .header {
+        height: 74px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font:
+          700 19px "Space Grotesk",
+          sans-serif;
+      }
+      .brand span {
+        color: var(--gold);
+      }
+      .links {
+        display: flex;
+        gap: 28px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .links a:hover {
+        color: var(--gold);
+      }
+      .connect {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--gold);
+        border: 0;
+        color: var(--forest);
+        padding: 11px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 3px;
+      }
+      .menu {
+        display: none;
+        background: none;
+        border: 0;
+        color: var(--ivory);
+        font-size: 23px;
+      }
+      .hero {
+        padding: 53px 0 34px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 35px;
+        align-items: end;
+      }
+      .eyebrow {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gold);
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+      .hero h1 {
+        font:
+          600 clamp(38px, 5vw, 62px)/1.02 "Space Grotesk",
+          sans-serif;
+        margin: 15px 0 14px;
+        max-width: 660px;
+      }
+      .hero p {
+        max-width: 550px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.75;
+        margin: 0;
+      }
+      .hero-aside {
+        border-left: 1px solid var(--gold);
+        padding: 5px 0 5px 18px;
+        font:
+          500 14px/1.6 "Space Grotesk",
+          sans-serif;
+        max-width: 280px;
+      }
+      .hero-aside small {
+        display: block;
+        color: var(--muted);
+        font:
+          400 10px "DM Sans",
+          sans-serif;
+        margin-top: 8px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(270px, 0.72fr);
+        gap: 38px;
+        border-top: 1px solid var(--line);
+        padding: 28px 0 42px;
+      }
+      .proposals-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+      .proposals-head h2,
+      .treasury h2 {
+        font:
+          600 19px "Space Grotesk",
+          sans-serif;
+        margin: 0;
+      }
+      .filter {
+        display: flex;
+        gap: 4px;
+      }
+      .filter button {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--line);
+        padding: 7px 10px;
+        font-size: 10px;
+      }
+      .filter button[aria-pressed="true"] {
+        background: var(--gold);
+        color: var(--forest);
+        border-color: var(--gold);
+        font-weight: 700;
+      }
+      .proposal {
+        padding: 19px 0;
+        border-top: 1px solid var(--line);
+      }
+      .proposal-top {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+      }
+      .proposal h3 {
+        font:
+          600 16px "Space Grotesk",
+          sans-serif;
+        margin: 0 0 6px;
+      }
+      .proposal p {
+        font-size: 11px;
+        line-height: 1.65;
+        color: var(--muted);
+        max-width: 620px;
+        margin: 0;
+      }
+      .status {
+        white-space: nowrap;
+        align-self: start;
+        border: 1px solid var(--line);
+        padding: 5px 8px;
+        color: var(--gold);
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .vote-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 15px;
+      }
+      .vote {
+        background: transparent;
+        color: var(--ivory);
+        border: 1px solid var(--line);
+        padding: 8px 11px;
+        font-size: 10px;
+      }
+      .vote:hover,
+      .vote[aria-pressed="true"] {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--forest);
+      }
+      .votes {
+        margin-left: auto;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .progress {
+        height: 4px;
+        background: rgba(246, 241, 231, 0.12);
+        margin-top: 14px;
+        display: flex;
+      }
+      .progress span {
+        height: 100%;
+        background: var(--gold);
+      }
+      .proposal-meta {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 9px;
+        margin-top: 8px;
+      }
+      .treasury {
+        padding-left: 24px;
+        border-left: 1px solid var(--line);
+      }
+      .treasury-sub {
+        font-size: 10px;
+        color: var(--muted);
+        margin: 7px 0 24px;
+      }
+      .treasury-total {
+        font:
+          600 35px "Space Grotesk",
+          sans-serif;
+      }
+      .treasury-total small {
+        font:
+          400 11px "DM Sans",
+          sans-serif;
+        color: var(--gold);
+        margin-left: 7px;
+      }
+      .treasury-chart {
+        height: 120px;
+        display: flex;
+        align-items: end;
+        gap: 7px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 1px;
+      }
+      .treasury-chart span {
+        flex: 1;
+        background: var(--gold);
+        opacity: 0.86;
+        min-width: 7px;
+      }
+      .chart-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: var(--muted);
+        margin: 8px 0 25px;
+      }
+      .allocation-title {
+        font:
+          600 13px "Space Grotesk",
+          sans-serif;
+        margin-bottom: 14px;
+      }
+      .allocation {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px 12px;
+        font-size: 10px;
+        color: var(--muted);
+      }
+      .allocation strong {
+        font-weight: 600;
+        color: var(--ivory);
+      }
+      .alloc-line {
+        height: 3px;
+        background: rgba(246, 241, 231, 0.12);
+        grid-column: 1/-1;
+        margin-top: -5px;
+      }
+      .alloc-line span {
+        height: 100%;
+        display: block;
+        background: var(--gold);
+      }
+      .footer {
+        border-top: 1px solid var(--line);
+        padding: 18px 0 28px;
+        color: var(--muted);
+        font-size: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .vote-feedback {
+        min-height: 16px;
+        margin: 9px 0 0;
+        color: var(--gold);
+        font-size: 10px;
+      }
+      @media (max-width: 800px) {
+        .shell {
+          padding: 0 22px;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .treasury {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 23px 0 0;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .hero-aside {
+          max-width: none;
+        }
+      }
+      @media (max-width: 580px) {
+        .shell {
+          padding: 0 17px;
+        }
+        .links {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+        .hero {
+          padding: 38px 0 26px;
+        }
+        .hero h1 {
+          font-size: 43px;
+        }
+        .proposals-head {
+          align-items: flex-start;
+          gap: 14px;
+          flex-direction: column;
+        }
+        .filter {
+          width: 100%;
+        }
+        .filter button {
+          flex: 1;
+        }
+        .proposal-top {
+          gap: 7px;
+        }
+        .proposal h3 {
+          font-size: 14px;
+        }
+        .status {
+          font-size: 8px;
+        }
+        .vote-row {
+          flex-wrap: wrap;
+        }
+        .votes {
+          width: 100%;
+          margin-left: 0;
+        }
+        .footer {
+          gap: 9px;
+          flex-direction: column;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell header">
+      <a class="brand" href="#top">common<span>ground</span></a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#proposals">Proposals</a><a href="#treasury">Treasury</a
+        ><a href="#about">Principles</a>
+      </nav>
+      <a class="connect" href="#proposals">
+        Review proposals <span aria-hidden="true">↓</span></a
+      ><button class="menu" type="button" aria-label="Open navigation">
+        +
+      </button>
+    </header>
+    <main class="shell" id="top">
+      <section class="hero" id="about">
+        <div>
+          <div class="eyebrow">A community-owned network</div>
+          <h1>Better things happen when we build together.</h1>
+          <p>
+            Take a look at a few sample proposals and see how a shared treasury
+            might be organised. The figures here are illustrative; nothing is
+            sent to a blockchain.
+          </p>
+        </div>
+        <div class="hero-aside">
+          Clear proposals. Room for discussion. Decisions the community can
+          follow.<small
+          >Portfolio preview · no wallet connected</small
+          >
+        </div>
+      </section>
+      <div class="layout">
+        <section id="proposals">
+          <div class="proposals-head">
+            <h2>Community proposals</h2>
+            <div class="filter" role="group" aria-label="Filter proposals">
+              <button type="button" aria-pressed="true" data-state="all">
+                All</button
+              ><button type="button" aria-pressed="false" data-state="active">
+                Active</button
+              ><button type="button" aria-pressed="false" data-state="passed">
+                Passed
+              </button>
+            </div>
+          </div>
+          <article class="proposal" data-status="active">
+            <div class="proposal-top">
+              <div>
+                <h3>Fund the open-source translation fund</h3>
+                <p>
+                  Support five contributors translating community tools and
+                  documentation into new languages.
+                </p>
+              </div>
+              <span class="status">Voting open</span>
+            </div>
+            <div class="progress"><span style="width: 72%"></span></div>
+            <div class="proposal-meta">
+              <span>72% in favour</span><span>Closes in 2 days</span>
+            </div>
+            <div class="vote-row">
+              <button class="vote" type="button" data-vote="Support" aria-pressed="false">Support</button
+              ><button class="vote" type="button" data-vote="Oppose" aria-pressed="false">Oppose</button
+              ><span class="votes">1,284 CG votes</span>
+            </div>
+            <p class="vote-feedback" aria-live="polite"></p>
+          </article>
+          <article class="proposal" data-status="active">
+            <div class="proposal-top">
+              <div>
+                <h3>Back the neighbourhood solar pilot</h3>
+                <p>
+                  Provide a community grant for a small shared solar
+                  installation and publish its operating data.
+                </p>
+              </div>
+              <span class="status">Voting open</span>
+            </div>
+            <div class="progress"><span style="width: 58%"></span></div>
+            <div class="proposal-meta">
+              <span>58% in favour</span><span>Closes in 5 days</span>
+            </div>
+            <div class="vote-row">
+              <button class="vote" type="button" data-vote="Support" aria-pressed="false">Support</button
+              ><button class="vote" type="button" data-vote="Oppose" aria-pressed="false">Oppose</button
+              ><span class="votes">842 CG votes</span>
+            </div>
+            <p class="vote-feedback" aria-live="polite"></p>
+          </article>
+          <article class="proposal" data-status="passed">
+            <div class="proposal-top">
+              <div>
+                <h3>Publish quarterly treasury reports</h3>
+                <p>
+                  Adopt a consistent public report covering grants, operating
+                  costs and remaining funds.
+                </p>
+              </div>
+              <span class="status">Passed</span>
+            </div>
+            <div class="progress"><span style="width: 91%"></span></div>
+            <div class="proposal-meta">
+              <span>91% in favour</span><span>Passed 12 Jun</span>
+            </div>
+            <div class="vote-row">
+              <span class="votes">2,036 CG votes · 91% in favour</span>
+            </div>
+          </article>
+        </section>
+        <aside class="treasury" id="treasury">
+          <h2>Shared treasury</h2>
+          <p class="treasury-sub">Example treasury · illustrative figures</p>
+          <div class="treasury-total">
+            $842,190<small>+4.8% this month</small>
+          </div>
+          <div
+            class="treasury-chart"
+            role="img"
+            aria-label="Treasury value chart over six months"
+          >
+            <span style="height: 34%"></span><span style="height: 43%"></span
+            ><span style="height: 39%"></span><span style="height: 57%"></span
+            ><span style="height: 68%"></span><span style="height: 63%"></span
+            ><span style="height: 78%"></span><span style="height: 72%"></span
+            ><span style="height: 88%"></span><span style="height: 82%"></span
+            ><span style="height: 96%"></span><span style="height: 100%"></span>
+          </div>
+          <div class="chart-labels">
+            <span>Jan</span><span>Mar</span><span>May</span><span>Jun</span>
+          </div>
+          <div class="allocation-title">Current allocation</div>
+          <div class="allocation">
+            <span>Community grants</span><strong>$421,095</strong>
+            <div class="alloc-line"><span style="width: 50%"></span></div>
+            <span>Development</span><strong>$252,657</strong>
+            <div class="alloc-line"><span style="width: 30%"></span></div>
+            <span>Reserves</span><strong>$168,438</strong>
+            <div class="alloc-line"><span style="width: 20%"></span></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer class="shell footer">
+      <span>Common Ground · Community governance preview</span
+      ><span
+        >All proposals, votes and balances are examples. No on-chain actions are performed.</span
+      >
+    </footer>
+    <script>
+      document.querySelectorAll("[data-state]").forEach((button) =>
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-state]")
+            .forEach((item) =>
+              item.setAttribute("aria-pressed", String(item === button)),
+            );
+          document.querySelectorAll(".proposal").forEach((proposal) => {
+            proposal.hidden =
+              button.dataset.state !== "all" &&
+              proposal.dataset.status !== button.dataset.state;
+          });
+        }),
+      );
+      document.querySelectorAll(".vote[data-vote]").forEach((button) =>
+        button.addEventListener("click", () => {
+          const proposal = button.closest(".proposal");
+          proposal.querySelectorAll(".vote[data-vote]").forEach((choice) => {
+            choice.setAttribute("aria-pressed", String(choice === button));
+          });
+          proposal.querySelector(".vote-feedback").textContent =
+            `Preview selection: ${button.dataset.vote}. Nothing has been submitted.`;
+        }),
+      );
+      document.querySelector(".menu").addEventListener("click", () => {
+        const nav = document.querySelector(".links");
+        const open = nav.style.display === "flex";
+        nav.style.cssText = open
+          ? ""
+          : "display:flex;position:absolute;top:74px;left:0;right:0;padding:20px;background:#17291f;border-bottom:1px solid rgba(246,241,231,.16);z-index:2;justify-content:center";
+      });
+    </script>
+  </body>
+</html>

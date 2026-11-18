@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2f6fa" />
+    <meta name="description" content="Blockscope is a concept observability workspace for blockchain network health, indexing and protocol activity." />
+    <title>Blockscope | On-chain intelligence</title>
+    <link rel="stylesheet" href="/web3-showcase.css" />
+  </head>
+  <body class="showcase-page theme-blockscope">
+    <header class="product-topbar">
+      <a class="product-brand" href="/" aria-label="Blockscope home">
+        <span class="brand-mark">B</span><span>Blockscope<span class="brand-label">NETWORK INTELLIGENCE</span></span>
+      </a>
+      <nav class="product-nav" aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#telemetry">Telemetry</a><a href="/">Portfolio</a>
+      </nav>
+      <a class="topbar-action" href="#telemetry">Latest blocks <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main class="project-shell">
+      <section class="project-intro" id="overview">
+        <div>
+          <p class="eyebrow"><span class="status-dot"></span> BLOCKSCOPE · NETWORK OVERVIEW</p>
+          <h1>When a transaction stalls,<br /><span>start here.</span></h1>
+          <p class="project-lede">First check whether the chain is slow, your indexer is behind, or your app is having a bad day. Blockscope brings those clues together so the team can spend less time guessing.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#telemetry">Look at the latest blocks <span aria-hidden="true">↓</span></a>
+            <a class="button" href="#checks">See system checks</a>
+          </div>
+        </div>
+        <aside class="network-card" aria-label="Network status">
+          <span class="network-label">Selected network</span>
+          <strong class="network-value">Sepolia</strong>
+          <span class="network-meta">Example feed · not connected to a live RPC</span>
+          <span class="network-indicator"><span class="status-dot"></span> No delays in this sample</span>
+        </aside>
+      </section>
+
+      <section class="workspace" id="telemetry" aria-label="Blockscope network dashboard">
+        <div class="workspace-main">
+          <div class="workspace-heading">
+            <div><span class="panel-label">A recent snapshot</span><h2>Network at a glance</h2></div>
+            <span class="simulated-tag">SAMPLE FEED</span>
+          </div>
+          <div class="metric-row">
+            <article class="metric-card"><span class="metric-label">Latest block</span><strong>6,842,190</strong><span class="metric-note">Example value</span></article>
+            <article class="metric-card"><span class="metric-label">Indexer delay</span><strong>4 sec</strong><span class="metric-note">Example value</span></article>
+            <article class="metric-card"><span class="metric-label">Blocks checked</span><strong>1,240</strong><span class="metric-note">Since this morning</span></article>
+          </div>
+          <div class="block-table" aria-label="Example recent blocks">
+            <div class="table-heading"><span>Block</span><span>Transactions</span><span>Age</span></div>
+            <div class="block-row"><span class="block-number"><strong>#6,842,190</strong><small>0x8e…2c17</small></span><span>142 txs</span><span>12 sec</span></div>
+            <div class="block-row"><span class="block-number"><strong>#6,842,189</strong><small>0x49…e0ab</small></span><span>128 txs</span><span>24 sec</span></div>
+            <div class="block-row"><span class="block-number"><strong>#6,842,188</strong><small>0x10…a5f2</small></span><span>157 txs</span><span>36 sec</span></div>
+          </div>
+        </div>
+        <aside class="workspace-aside" id="checks">
+          <h3>Quick checks</h3>
+          <div class="activity-row"><span class="activity-icon">1</span><div class="activity-copy"><strong>RPC response</strong><small>Is the node answering?</small></div><span class="activity-value">Normal</span></div>
+          <div class="activity-row"><span class="activity-icon">2</span><div class="activity-copy"><strong>Indexer progress</strong><small>Is it keeping up?</small></div><span class="activity-value">Current</span></div>
+          <div class="activity-row"><span class="activity-icon">3</span><div class="activity-copy"><strong>App requests</strong><small>Any recent errors?</small></div><span class="activity-value">None</span></div>
+          <p class="privacy-copy">These checks use sample values. A real workspace would let your team choose its own RPC and indexer.</p>
+        </aside>
+      </section>
+
+      <div class="section-heading"><h2>Built for the questions that come up mid-incident</h2><p>Not another wall of graphs—just enough context to find the next place to look.</p></div>
+      <section class="detail-grid" aria-label="Blockscope product capabilities">
+        <article class="detail-card"><span class="detail-index">START WITH THE BLOCK</span><h3>Follow the transaction</h3><p>Move from a block to its transactions without losing your place or copying hashes between tools.</p></article>
+        <article class="detail-card"><span class="detail-index">CHECK THE PIPELINE</span><h3>Spot indexing lag</h3><p>Compare the latest chain height with the indexer height and see the gap in plain language.</p></article>
+        <article class="detail-card"><span class="detail-index">SHARE THE CONTEXT</span><h3>Give the team one view</h3><p>Keep a short status note beside the network details so the next person knows what has already been checked.</p></article>
+      </section>
+      <p class="concept-note">Blockscope is a portfolio concept. The blocks and metrics above are fabricated examples and are not fetched from Ethereum or any live RPC service.</p>
+      <footer class="project-footer"><a class="back-link" href="/">← Back to Bitrus H Amaza's portfolio</a><span>Example feed · Not connected to a chain</span></footer>
+    </main>
+  </body>
+</html>
